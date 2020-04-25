@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import { Jumbotron } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import Code from './CodeComponent';
-import { snippets } from '../shared/test_code_snippets';
+
 
 class Home extends Component {
 
+
     render() {
+
+        console.log(this.props.snippets);
 
         return(
             <div>
@@ -33,19 +36,19 @@ class Home extends Component {
                 <div className="container bg-light">
 
                     <div className="row row-content align-items-center">
-                        <div className="col-12 col-md-8">
-                            <Code snippet={snippets[0]}/>
+                        <div className="col-12 col-md-4 order-md-2">
+                            <h2 style={{textAlign : "center"}}>Code Example 1</h2>
                         </div>
-                        <div className="col-12 col-md-4">
-                            <h1>Code Example 1</h1>
+                        <div className="col-12 col-md-8 order-md-1">
+                            <Code snippet={this.props.snippets[0]}/>
                         </div>
                     </div>
                     <div className="row row-content align-items-center">
-                        <div className="col-12 col-md-8 order-last">
-                            <Code snippet={snippets[1]}/>
+                        <div className="col-12 col-md-4 order-md-1">
+                            <h2 style={{textAlign : "center"}}>Code Example 2</h2>
                         </div>
-                        <div className="col-12 col-md-4 order-first">
-                            <h1>Code Example 2</h1>
+                        <div className="col-12 col-md-8 order-md-2">
+                            <Code snippet={this.props.snippets[1]}/>
                         </div>
                     </div>
                 </div>

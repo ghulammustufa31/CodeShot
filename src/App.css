@@ -30,3 +30,23 @@
     width: fit-content;
     height: fit-content;
 }
+
+.code-snippet-textarea {
+    border: none;
+    margin: 0px 0px;
+}
+
+.codeCard {
+    box-shadow: 5px 5px 8px gray;
+}
+
+.codeCard .card-header {
+    background-color: rgb(197, 162, 230);
+    color: white;
+}
+
+.codeCard .card-footer {
+    background-color: rgb(119, 116, 121);
+    color: white;
+}
+

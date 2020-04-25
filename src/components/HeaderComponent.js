@@ -35,7 +35,7 @@ class Header extends Component {
                         </NavItem>
                         <NavItem>
                             <NavLink href="/library" >
-                                <span className="fa fa-codepen fa-lg" style={{color: "#4774c9"}}></span> Library
+                                <span className="fa fa-codepen fa-lg" style={{color: "blueviolet"}}></span> Library
                             </NavLink>
                         </NavItem>
                         <NavItem>

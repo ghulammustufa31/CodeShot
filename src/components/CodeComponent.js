@@ -22,10 +22,10 @@ class Code extends Component {
         if (snippet != null) {
             return (
                 <div>
-                    <Card>
+                    <Card className="codeCard">
                         <CardHeader>{snippet.caption}</CardHeader>
                         <CardBody>
-                        <textarea className="col-12" rows="10" value={snippet.code} readOnly>
+                        <textarea className="col-12 code-snippet-textarea" rows="10" value={snippet.code} readOnly>
                             
                         </textarea>
                         </CardBody>
@@ -42,10 +42,6 @@ class Code extends Component {
     }
     
     render() {
-
-
-        
-
         return (
             <div>
                 {this.renderCode(this.props)}

@@ -1,4 +1,4 @@
-export const snippets = [
+export const SNIPPETS = [
     {
         id: 0,
         caption: 'React Component Sample',
