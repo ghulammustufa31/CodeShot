@@ -1,6 +1,5 @@
 import React, { Component} from 'react';
 import { Navbar, Nav, NavLink, NavbarText, NavbarBrand, NavItem, NavbarToggler, Collapse } from 'reactstrap';
-import { Link } from 'react-router-dom'; 
 
 class Header extends Component {
 
@@ -23,7 +22,9 @@ class Header extends Component {
         return (
             <div>
                 <Navbar color="dark" dark expand="md">
-                    <NavbarBrand href="/">CodeShot</NavbarBrand>
+                    <NavbarBrand className="mr-auto" href="/">
+                        <img src="assets/images/codeshot-logo-w.png" height="50" width="81" alt="CodeShot" />
+                    </NavbarBrand>
                     <NavbarToggler onClick={this.toggleNav} />
                     <Collapse isOpen={this.state.isNavOpen} navbar>
                     <Nav className="mr-auto" navbar>
