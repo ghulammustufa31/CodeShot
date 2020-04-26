@@ -36,7 +36,8 @@ function Footer(props) {
           <MDBContainer className="mt-5 mb-4 text-center text-md-left">
             <MDBRow className="mt-3">
               <MDBCol md="4" lg="4" xl="4" className="mb-4">
-              <img src="assets/images/codeshot-logo-w.png" height="80" width="120" alt="CodeShot" className="img-fluid" style={{marginLeft: "-25px"}} />
+              {/* <img src="assets/images/codeshot-logo-w.png" height="80" width="120" alt="CodeShot" className="img-fluid" style={{marginLeft: "-25px"}} /> */}
+              <img src="assets/images/codeshot-logo-w.png" height="80" width="120" alt="CodeShot" className="img-fluid" />
               <br />
                 <p>
                   Here you can find a number of code snippets. Every programmer want to find a code snippet which can be used for various purposes, this is where you will fulfil your needs.

@@ -11,13 +11,13 @@ class Code extends Component {
     getTags(tags) {
         let lTags = []; 
         tags.forEach((tag) => lTags.push(this.getTagText(tag)));
-        console.log(lTags);
+        //console.log(lTags);
         return lTags.join();
     }
 
     renderCode({snippet}) {
 
-        this.getTags(snippet.tags);
+        console.log("In Code", snippet);
 
         if (snippet != null) {
             return (
