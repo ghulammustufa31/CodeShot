@@ -50,3 +50,15 @@
     color: white;
 }
 
+#searchRow {
+    background-color: lightslategray;
+}
+#searchRow h5{
+    color: whitesmoke;
+    font-weight: 400;
+}
+
+Footer {
+    margin-top: 120px;
+    clear: both;
+}

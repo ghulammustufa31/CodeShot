@@ -38,15 +38,21 @@ class Library extends Component {
         //     });
         // });
 
-        const res = this.props.snippets.filter((snippet) => {
-            return snippet.tags.some((tag) => {
-                return selectedTags.some((selectedTag) => {
-                    return tag.tag === selectedTag.value;
+        if (selectedTags != null) {
+
+            console.log("In checkSelectedValue", selectedTags);
+
+            const res = this.props.snippets.filter((snippet) => {
+                return snippet.tags.some((tag) => {
+                    return selectedTags.some((selectedTag) => {
+                        return tag.tag === selectedTag.value;
+                    });
                 });
             });
-        });
 
-        this.setState({selectedSnippets: res});
+            this.setState({selectedSnippets: res});
+        }
+        
     }
 
     render() {
@@ -64,7 +70,7 @@ class Library extends Component {
                         <hr />  
                     </div>
                 </div>
-                <div className="row bg-light align-items-center">
+                <div className="row align-items-center" id="searchRow">
                     <div className="col-12 col-md-8 offset-md-2 mt-3">
                         <h5 style={{textAlign: "center"}}>Search by Tags</h5>
                         <Select isMulti
@@ -80,10 +86,10 @@ class Library extends Component {
                 </div>
                 
             </div>
-            <div className="container bg-primary">
-                <div className="row row-header">
+            <div className="container bg-light">
+                <div className="row" style={{minHeight:"300px"}}>
                     <div className="col-12 col-md-3">
-                        <Card className="mt-5">
+                        <Card className="mt-5 ml-2">
                             <CardHeader>Latest Post</CardHeader>
                             <CardBody>
                                 <CardText><CardLink href="#">Post 1</CardLink></CardText>
