@@ -15,11 +15,6 @@ class Library extends Component {
         super(props);
         this.state = {
             selectedSnippets: null,
-            tags: [
-                { value: 'c#', label: 'C#' },
-                { value: 'react', label: 'React' },
-                { value: 'angularComponent', label: 'Angular Component' }
-              ]
         }
     }
     
@@ -39,10 +34,8 @@ class Library extends Component {
         // });
 
         if (selectedTags != null) {
-
-            console.log("In checkSelectedValue", selectedTags);
-
-            const res = this.props.snippets.filter((snippet) => {
+            
+            const res = this.props.snippets.snippets.filter((snippet) => {
                 return snippet.tags.some((tag) => {
                     return selectedTags.some((selectedTag) => {
                         return tag.tag === selectedTag.value;
@@ -75,7 +68,7 @@ class Library extends Component {
                         <h5 style={{textAlign: "center"}}>Search by Tags</h5>
                         <Select isMulti
                             name="colors"
-                            options={this.state.tags}
+                            options={this.props.availableTags.availableTags}
                             className="basic-multi-select"
                             classNamePrefix="select"
                             onChange={(value) => this.checkSelectedValue(value)}/>
@@ -99,7 +92,7 @@ class Library extends Component {
                         </Card>
                     </div>
                     <div className="col-12 col-md-9">
-                        <Snippets filteredSnippets={this.state.selectedSnippets} snippets={this.props.snippets} />
+                        <Snippets filteredSnippets={this.state.selectedSnippets} snippets={this.props.snippets.snippets} />
                     </div>
                 </div>
             </div>

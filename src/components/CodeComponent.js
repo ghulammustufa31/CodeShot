@@ -17,8 +17,6 @@ class Code extends Component {
 
     renderCode({snippet}) {
 
-        console.log("In Code", snippet);
-
         if (snippet != null) {
             return (
                 <div>

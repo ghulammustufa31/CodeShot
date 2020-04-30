@@ -7,8 +7,6 @@ function Snippets(props) {
     
 
     const renderSnippets = (snippets, filteredSnippets) => {
-        console.log("In Render Snippets", filteredSnippets);
-        console.log("In Render Snippets", snippets);
         if (filteredSnippets != null) {
             if (filteredSnippets.length > 0) {
                 return (
@@ -25,7 +23,6 @@ function Snippets(props) {
                 );
             }
             else {
-                console.log("In else");
                 return (
                     <div className="ml-3 mt-5" >
                         <h1>No data available</h1>
@@ -35,7 +32,6 @@ function Snippets(props) {
             
         }
         else {
-            console.log("In else if");
             return (
                 <div>
                     {

@@ -2,14 +2,30 @@ import React, { Component } from 'react';
 import { Jumbotron } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import Code from './CodeComponent';
+import { Loading } from './LoadingComponent';
 
 
 class Home extends Component {
 
+    renderHomeSnippets(snippet, isLoading, errMess) {
+        if (isLoading) {
+            return (
+                <Loading />
+            );
+        }
+        else if (errMess) {
+            return (
+                <h3>Failed to load!</h3>
+            ); 
+        }
+        else {
+            return (
+                <Code snippet={snippet}/>
+            );
+        }
+    }
 
     render() {
-
-        console.log(this.props.snippets);
 
         return(
             <div>
@@ -40,7 +56,7 @@ class Home extends Component {
                             <h2 style={{textAlign : "center"}}>Code Example 1</h2>
                         </div>
                         <div className="col-12 col-md-8 order-md-1">
-                            <Code snippet={this.props.snippets[0]}/>
+                            { this.renderHomeSnippets(this.props.snippets.snippets[0], this.props.snippets.isLoading, this.props.snippets.errMess)}
                         </div>
                     </div>
                     <div className="row row-content align-items-center">
@@ -48,7 +64,7 @@ class Home extends Component {
                             <h2 style={{textAlign : "center"}}>Code Example 2</h2>
                         </div>
                         <div className="col-12 col-md-8 order-md-2">
-                            <Code snippet={this.props.snippets[1]}/>
+                        { this.renderHomeSnippets(this.props.snippets.snippets[1], this.props.snippets.isLoading, this.props.snippets.errMess)}
                         </div>
                     </div>
                 </div>
