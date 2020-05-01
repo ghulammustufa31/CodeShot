@@ -1,15 +1,24 @@
 import React, { Component} from 'react';
 import { Navbar, Nav, NavLink, NavbarText, NavbarBrand, NavItem, NavbarToggler, Collapse } from 'reactstrap';
+import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter, MDBRow, MDBCol, MDBInput } from 'mdbreact';
 
 class Header extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            isNavOpen: false
+            isNavOpen: false,
+            loginModal: false
         }
 
         this.toggleNav = this.toggleNav.bind(this);
+        this.toggleModal = this.toggleModal.bind(this);
+    }
+
+    toggleModal() {
+        this.setState({
+            loginModal: !this.state.loginModal
+        })
     }
 
     toggleNav() {
@@ -52,13 +61,39 @@ class Header extends Component {
                         </NavItem>
                     </Nav> */}
                     <NavbarText>
-                        <NavLink href="/login">
+                        <NavLink onClick={this.toggleModal}>
                             <span className="fa fa-arrow-right fa-lg"></span> Login
                         </NavLink>
                     </NavbarText>
                     
                     </Collapse>
                 </Navbar>
+
+                <MDBModal isOpen={this.state.loginModal} toggle={this.toggleModal} fullHeight position="right">
+                    <MDBModalHeader toggle={this.toggleModal}>Sign In</MDBModalHeader>
+                    <MDBModalBody>
+                        <MDBContainer>
+                            <MDBRow>
+                                <MDBCol md="12">
+                                <form>
+                                    <div className="grey-text">
+                                    <MDBInput label="Type your email" icon="envelope" group type="email" validate error="wrong"
+                                        success="right" />
+                                    <MDBInput label="Type your password" icon="lock" group type="password" validate />
+                                    </div>
+                                    <div className="text-center">
+                                    <MDBBtn color="primary">Login</MDBBtn>
+                                    </div>
+                                </form>
+                                </MDBCol>
+                            </MDBRow>
+                        </MDBContainer>
+                    </MDBModalBody>
+                    <MDBModalFooter>
+                    <MDBBtn color="secondary" onClick={this.toggleModal}>Close</MDBBtn>
+                    </MDBModalFooter>
+                </MDBModal>
+
             </div>
         );
     }
