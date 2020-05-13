@@ -8,17 +8,24 @@ import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchSnippets } from '../redux/ActionCreators/snippetsActions';
 import { fetchTags } from '../redux/ActionCreators/tagsActions';
+import { loginUser, logoutUser } from '../redux/ActionCreators/loginUserActions';
+import { actions } from 'react-redux-form';
+import Dashboard from './DashboardComponent';
 
 const mapStateToProps = state => {
     return {
         snippets: state.snippets,
-        availableTags: state.availableTags
+        availableTags: state.availableTags,
+        loggedUser: state.loggedUser
     }
 }
 
 const mapDispatchToProps = (dispatch) => ({
     fetchSnippets: () => {dispatch(fetchSnippets())},
-    fetchTags: () => {dispatch(fetchTags())}
+    fetchTags: () => {dispatch(fetchTags())},
+    resetLoginForm: () => { dispatch(actions.reset('login'))},
+    loginUser: (email, password) => {dispatch(loginUser(email, password))},
+    logoutUser: () => {dispatch(logoutUser())}
 })
 
 class Main extends Component {
@@ -32,8 +39,9 @@ class Main extends Component {
 
         return(
             <div>
-                <Header />
+                <Header resetLoginForm={this.props.resetLoginForm} loginUser={this.props.loginUser} loggedUser={this.props.loggedUser} logoutUser={this.props.logoutUser} />
                 <Switch>
+                    <Route exact path="/dashboard" component={() => <Dashboard availableTags={this.props.availableTags} loggedUser={this.props.loggedUser} />}></Route>
                     <Route exact path="/home" component={() => <Home snippets={this.props.snippets}/>}></Route>
                     <Route exact path="/library" component={() => <Library snippets={this.props.snippets} availableTags={this.props.availableTags}/>}></Route>
                     <Route exact path="/about" component={() => <About />}></Route>

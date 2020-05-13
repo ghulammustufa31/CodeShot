@@ -24,11 +24,13 @@ export const SNIPPETS = [
         tags: [
             {
                 id: 0,
-                tag: 'react'
+                value: 'react',
+                label: 'React'
             },
             {
                 id: 1,
-                tag: 'javascript'
+                value: 'javascript',
+                label: 'Javascript'
             }
         ]
     },
@@ -54,11 +56,13 @@ export const SNIPPETS = [
         tags: [
             {
                 id: 0,
-                tag: 'c#'
+                value: 'c#',
+                label: 'C#'
             },
             {
                 id: 1,
-                tag: 'c# class'
+                value: 'c# class',
+                label: 'C#'
             }
         ]
     }

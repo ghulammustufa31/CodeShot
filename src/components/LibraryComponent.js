@@ -38,7 +38,7 @@ class Library extends Component {
             const res = this.props.snippets.snippets.filter((snippet) => {
                 return snippet.tags.some((tag) => {
                     return selectedTags.some((selectedTag) => {
-                        return tag.tag === selectedTag.value;
+                        return tag.value === selectedTag.value;
                     });
                 });
             });

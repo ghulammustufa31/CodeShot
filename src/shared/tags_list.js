@@ -1,6 +1,6 @@
 export const TAGS_LIST = 
 [
-    { value: 'c#', label: 'C#' },
-    { value: 'react', label: 'React' },
-    { value: 'angularComponent', label: 'Angular Component' }
+    { id: 1, value: 'c#', label: 'C#' },
+    { id: 2, value: 'react', label: 'React' },
+    { id: 3, value: 'angularComponent', label: 'Angular Component' }
 ]

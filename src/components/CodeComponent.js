@@ -5,7 +5,7 @@ class Code extends Component {
 
 
     getTagText(tag) {
-        return tag.tag;
+        return tag.value;
     }
 
     getTags(tags) {
@@ -17,6 +17,7 @@ class Code extends Component {
 
     renderCode({snippet}) {
 
+        console.log("From CodeComponent", snippet);
         if (snippet != null) {
             return (
                 <div>
